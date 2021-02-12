@@ -53,6 +53,7 @@ zoom_handler.scaleTo(svg, scale);
 //using html for the title/subtitle alignment
 
 function showInfo() {
+  d3.selectAll(".titles").remove();
   var titles = d3.select("body").append("div")
     .attr("class", "titles")
     .style("left", 0)
