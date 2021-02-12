@@ -52,20 +52,36 @@ zoom_handler.scaleTo(svg, scale);
 
 //using html for the title/subtitle alignment
 
-var titles = d3.select("body").append("div")
-  .attr("class", "titles")
-  .style("left", 0)
-  .style("bottom", 0);
+function showInfo() {
+  var titles = d3.select("body").append("div")
+    .attr("class", "titles")
+    .style("left", 0)
+    .style("bottom", 0);
 
-titles.append("div")
-  .html("Exploring Korean music: a map")
-  .attr("class", "title")
+  titles.append("div")
+    .html("Exploring Korean music: a map")
+    .attr("class", "title");
 
-titles.append("div")
-  .html("<a  href = 'https://nathankim.name/portfolio/map_month/9_nongeographic/'>What am I looking at?</a>")
+  titles.append("div")
+    .html(`Each circle represents one musician. Circles attract each other based on how many collaborations they have together.
+    <br> Color represents genre (blue being K-r&b, orange K-hiphop, green K-pop, and red K-indie). Size represents popularity relative to the genre.
+    <br> Scroll to zoom. Click on circles to reveal collaborations between artists and basic artist info.`);
+  titles.append("div")
+    .attr("display", "inline-block")
+    .html(`<a  href = 'https://nathankim.name/portfolio/map_month/9_nongeographic/'>Click me to read more.</a>
+          <button onclick='hideInfo()'>Click me to hide info.</button>`);
+}
+showInfo();
 
-
-
+function hideInfo() {
+  d3.selectAll(".titles").remove();
+  d3.select("body").append("div")
+    .attr("class", "titles")
+    .style("left", 0)
+    .style("bottom", 0)
+    .append("div")
+    .html("<button onclick='showInfo()'>Click me to show info.</button>")
+}
 
 var simulation = d3.forceSimulation()
   .force("link", d3.forceLink().id(function(d){ return d.value;})
