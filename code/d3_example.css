@@ -48,10 +48,10 @@ text {
   pointer-events: none;
   font-family: 'Lato', sans-serif;
 }
-
+/* hide titles unless screen wider than 1024px */
 .titles {
   position: absolute;
-  display:flex;
+  display:none;
   flex-direction: column;
 
   margin-left: 10px;
@@ -61,6 +61,12 @@ text {
   background-color: #F7F7F7;
   border: 3px solid lightsteelblue;
   border-radius: 30px;
+}
+
+@media screen and (min-width:1024px){
+    .titles {
+        display:flex;
+    }
 }
 
 .title {
