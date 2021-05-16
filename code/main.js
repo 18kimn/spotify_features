@@ -69,7 +69,7 @@ function showInfo() {
     <br> Scroll to zoom. Click on circles to reveal collaborations between artists and basic artist info.`);
   titles.append("div")
     .attr("display", "inline-block")
-    .html(`<a  href = 'https://nathankim.name/portfolio/map_month/9_nongeographic/'>Click me to read more.</a>
+    .html(`<a  href = 'https://nathankim.name/portfolio/general/9_nongeographic/'>Click me to read more.</a>
           <button onclick='hideInfo()'>Click me to hide info.</button>`);
 }
 showInfo();
