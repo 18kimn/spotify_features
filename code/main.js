@@ -114,6 +114,8 @@ var simulation = d3.forceSimulation()
 
 d3.json("../data/assembled.json", function(data) {
 
+  d3.select('.loading-container').remove()
+
 // the nodes really need no adjustment for the most part, so I'm putting them in the d3.json(...) section so that the code to set them up only runs connected
 // links need constant adjustment, i.e. they're not generated at all to begin with and are made only through clicking, so they go int the update(); section
   node = node
